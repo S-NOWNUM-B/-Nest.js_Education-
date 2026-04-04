@@ -1,10 +1,13 @@
-import { Controller, Post } from '@nestjs/common';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import { AuthDto } from './dto/auth.dto';
 
 @Controller('auth')
 export class AuthController {
   @Post('register')
-  async registrt() {}
+  async register(@Body() dto: AuthDto) {}
 
+  @HttpCode(200)
   @Post('login')
-  async login() {}
+  async login(@Body() dto: AuthDto) {}
 }
